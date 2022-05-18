@@ -1,0 +1,45 @@
+{% extends 'base/index.html' %}
+
+{% block main %}
+    <div id="outer-container">
+      {% include 'base/header.html' %}
+      <div id="content">
+        <h1>Профиль</h1>
+        <div class="content-profile">
+          <div class="content-profile__userInfo">
+            <h5>Вы вошли под именем: <span>{{ user.name }}</span></h5>
+          </div>
+          <div class="content-profile__userBooks">
+            <h4>Добавленные книги</h4>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for i in books %}
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <img
+                      src="https://images.unsplash.com/photo-1638913659248-776908ed6eae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870"
+                      alt=""
+                    />
+                    <div class="card-body">
+                      <h5>{{ i.name }}</h5>
+                      <p class="card-text">{{ i.description }}</p>
+                      {% comment %} <p>Автор книги</p> {% endcomment %}
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <a href="{% url 'viewBook' %}?id={{ i.id }}" class="btn btn-success">Читать</a>
+                        <a href="{% url 'deleteBookMe' %}?id={{ i.id }}" class="btn btn-danger">Удалить</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <br />
+          <a href="{% url 'logout' %}"><button class="btn btn-outline-danger">Выйти из аккаунта</button></a>
+        </div>
+      </div>
+    </div>
+{% endblock main %}
