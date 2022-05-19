@@ -7,7 +7,6 @@ from django.views.generic import View
 
 from .forms import *
 
-
 from .models import *
 # Create your views here.
 

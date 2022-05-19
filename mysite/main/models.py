@@ -17,6 +17,7 @@ class Book(models.Model):
     pages = models.IntegerField()
     description = models.CharField(max_length=500)
     file = models.FileField(upload_to='files/', null=True)
+    img = models.CharField(max_length=500)
     categories = models.ForeignKey(Categories, on_delete=models.CASCADE)
 
     def __str__(self):
