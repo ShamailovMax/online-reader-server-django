@@ -15,7 +15,11 @@
   <hr />
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="{% url 'index' %}" class="nav-link active" aria-current="page">
+      <a
+        href="{% url 'index' %}"
+        class="nav-link link-dark"
+        aria-current="page"
+      >
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#home"></use>
         </svg>
@@ -46,7 +50,7 @@
     <br />
     <li>
       <a href="{% url 'addcategories' %}" class="btn btn-warning"
-        >Добавить каталог</a
+        >Добавить категорию</a
       >
     </li>
     {% endif %}
@@ -69,7 +73,7 @@
       />
       {% if name %}
       <a href="{% url 'profile' %}"> {{ name }} </a>
-      {% else %} UserName {% endif %}
+      {% else %} Не авторизован {% endif %}
     </a>
     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
       {% if name %}
