@@ -21,6 +21,7 @@ class index(View):
         if 'id' in request.GET:
             cat = Categories.objects.get(id=request.GET['id'])
             context['books'] = Book.objects.filter(categories=cat)
+            context['cat'] = cat.name
         else:
             context['books'] = Book.objects.all()
         return render(request, "main/index.html", context=context)
@@ -41,7 +42,7 @@ class login(View):
         else:
             context = {}
             context['form'] = user
-            return render(request, "main/login.html", context=context)
+            return render(request, "main/reg/loginForm.html", context=context)
 
 
 class logout(View):

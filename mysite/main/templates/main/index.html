@@ -2,7 +2,11 @@
 <div id="outer-container">
   {% include 'base/header.html' %}
   <div id="content">
+    {% if cat %}
+    <h1>{{cat}}</h1>
+    {% else %}
     <h1>Каталог</h1>
+    {% endif %}
     <input
       id="search"
       type="text"

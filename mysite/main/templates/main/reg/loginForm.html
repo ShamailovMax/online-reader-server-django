@@ -15,7 +15,7 @@
         {{ form.password|addclass:'form-control'  }}
         {{ form.password.label_tag }}
       </div>
-      {{ form.error }}
+      {{ form.errors }}
       <br />
       <button class="btn btn-success">Войти</button>
       <a href="{% url 'reg' %}" class="btn btn-outline-info">Нет аккаунта?</a>
